@@ -9,13 +9,18 @@ if (!localStorage.hasOwnProperty("mainDir")) {
 }
 let wfs = {
   addTextFile: async function(file, lotName, directory) {
+    let dir
     let fileEncoded
     await fetch(file).then(response => response.text()).then(data => fileEncoded = data)
     localStorage.setItem(lotName, fileEncoded)
     if (directory == "") {
-      localStorage.setItem("mainDir", JSON.parse(localStorage.getItem("mainDir")).push(lotName).toString())
+      dir = JSON.parse(localStorage.getItem("mainDir"))
+      dir.push(lotName)
+      localStorage.setItem("mainDir", dir.toString())
     } else {
-      locaStorage.setItem(directory, JSON.parse(localStorage.getItem(directory)).push(lotName).toString())
+      dir = JSON.parse(localStorage.getItem(directory))
+      dir.push(lotName)
+      locaStorage.setItem(directory, dir.toString())
     }
   },
   getFile: function(lotName) {
