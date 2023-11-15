@@ -4,15 +4,18 @@
 * github: esdraslov
 * github repo: esdraslov/wfs-API
 */
+if (!localStorage.hasOwnProperty("mainDir")) {
+  localStorage.setItem("mainDir", "[]")
+}
 let wfs = {
   addTextFile: function(file, lotName, directory) {
     let fileEncoded
     await fetch(file).then(response => response.text()).then(data => fileEncoded = data)
     localStorage.setItem(lotName, fileEncoded)
     if (directory == "") {
-      localStorage.setItem("mainDir", lotName)
+      localStorage.setItem("mainDir", JSON.parse(localStorage.getItem("mainDir")).push(lotName))
     } else {
-      locaStorage.setItem(directory, lotName)
+      locaStorage.setItem(directory, JSON.parse(localStorage.getItem(directory)).push(lotName))
     }
   },
   getFile: function(lotName) {
