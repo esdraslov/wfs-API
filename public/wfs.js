@@ -13,9 +13,9 @@ let wfs = {
     await fetch(file).then(response => response.text()).then(data => fileEncoded = data)
     localStorage.setItem(lotName, fileEncoded)
     if (directory == "") {
-      localStorage.setItem("mainDir", JSON.parse(localStorage.getItem("mainDir")).push(lotName))
+      localStorage.setItem("mainDir", JSON.parse(localStorage.getItem("mainDir")).push(lotName).toString())
     } else {
-      locaStorage.setItem(directory, JSON.parse(localStorage.getItem(directory)).push(lotName))
+      locaStorage.setItem(directory, JSON.parse(localStorage.getItem(directory)).push(lotName).toString())
     }
   },
   getFile: function(lotName) {
