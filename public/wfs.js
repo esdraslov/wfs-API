@@ -8,7 +8,7 @@ if (!localStorage.hasOwnProperty("mainDir")) {
   localStorage.setItem("mainDir", "[]")
 }
 let wfs = {
-  addTextFile: function(file, lotName, directory) {
+  addTextFile: async function(file, lotName, directory) {
     let fileEncoded
     await fetch(file).then(response => response.text()).then(data => fileEncoded = data)
     localStorage.setItem(lotName, fileEncoded)
