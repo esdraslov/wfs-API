@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="../public/wfs.js" type="module"></script>
+  <script src="../public/wfs.js" type="module" onLoad="wfsLoad()"></script>
   <script>
     function wfsLoad () {
       wfs.addTextFile("toUpload.txt", "toUpload.txt", "").then(()=>{
