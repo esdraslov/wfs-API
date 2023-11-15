@@ -28,5 +28,5 @@ let wfs = {
     get: function(directoryName) {
       return JSON.parse(localStorage.getItem(directoryName))
     }
-  },
-},
+  }
+}

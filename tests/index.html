@@ -8,10 +8,12 @@
 </head>
 <body>
   <script src="../public/wfs.js" type="module"></script>
-  <script type="module">
-    await wfs.addTextFile("toUpload.txt", "toUpload.txt", "").then(()=>{
-      console.log("File uploaded: ", wfs.getFile("toUpload.txt"));
-    })
+  <script>
+    function wfsLoad () {
+      wfs.addTextFile("toUpload.txt", "toUpload.txt", "").then(()=>{
+        console.log("File uploaded: ", wfs.getFile("toUpload.txt"));
+      })
+    }
   </script>
 </body>
 </html>
